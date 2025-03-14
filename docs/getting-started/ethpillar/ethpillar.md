@@ -2,21 +2,11 @@
 sidebar_position: 100
 ---
 
-# How to Use EthPillar Setup Validator for Endurance Staking
-
-## What is EthPillar?
-
-> Empowered, inspired, home staker. Free. Open source. Public goods for Ethereum. Supports ARM64 and AMD64 architectures.
-
-EthPillar is designed to streamline the onboarding process for new users aiming to become solo stakers. Here’s why we chose EthPillar:
-
-- **User-Friendly Node Installer**: Deploy a systemd installation with minority clients `Nimbus-Reth` in mere minutes, including MEVboost.
-- **Simplicity**: No need to memorize CLI commands. Access common node operations through a straightforward text user interface (TUI).
-- **Swift Updates**: Easily find and download the latest consensus/execution releases, minimizing downtime.
+# Setup Validator for Endurance Staking
 
 ## Installation
 
-To install EthPillar, run the following command:
+run the following command:
 
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/OpenFusionist/EthPillar-Endurance/main/install.sh)"

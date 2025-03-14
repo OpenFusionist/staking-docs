@@ -1,6 +1,6 @@
 {
-  "label": "How-to",
-  "position": 500,
+  "label": "Legacy Way",
+  "position": 20,
   "link": {
     "type": "generated-index",
   }
