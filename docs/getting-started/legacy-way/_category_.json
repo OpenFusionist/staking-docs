@@ -1,6 +1,6 @@
 {
-  "label": "Node Template",
-  "position": 300,
+  "label": "Legacy Way",
+  "position": 20,
   "link": {
     "type": "generated-index",
   }
