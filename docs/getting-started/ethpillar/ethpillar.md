@@ -20,7 +20,19 @@ To start running nodes, simply execute:
 ethpillar
 ```
 
-EthPillar’s TUI provides comprehensive step-by-step instructions. Additionally, we have recorded a [video guide](https://www.youtube.com/watch?v=iBuOBBx-O0c) for your convenience.
+EthPillar’s TUI provides comprehensive step-by-step instructions. Additionally, we have recorded a video guide:
+
+<div align="center">
+  <iframe 
+    width="800"
+    height="450"
+    src="https://www.youtube.com/embed/iBuOBBx-O0c" 
+    title="EthPillar Setup Guide" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen
+  ></iframe>
+</div>
 
 Here are some screenshots of key steps:
 
@@ -46,7 +58,19 @@ Following the TUI prompts, you can choose to send your deposit request on-chain 
 
 For advanced users who need to manage multiple keys simultaneously, we provide a batch sending [tool](https://github.com/OpenFusionist/staking-batch-depositer).
 
-In this section, we have recorded a [video guide](https://www.youtube.com/watch?v=QyIT_9w7Ae4) for user reference.
+In this section, we have recorded a video guide:
+
+<div align="center">
+  <iframe 
+    width="800"
+    height="450"
+    src="https://www.youtube.com/embed/QyIT_9w7Ae4" 
+    title="EthPillar Validator Key Generation and Deposit" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen
+  ></iframe>
+</div>
 
 ## Withdraw Deposit
 
@@ -54,9 +78,21 @@ EthPillar integrates with [ethdo](https://github.com/wealdtech/ethdo) to facilit
 
 To withdraw, run `ethpillar`, select `Validator Client -> Generate Voluntary Exit Messages (VEM)` and `Validator Client -> Broadcast Voluntary Exit Messages (VEM)`, and follow the instructions.
 
-In this section, we have recorded a [video guide](https://www.youtube.com/watch?v=bekwo-BfQ-8) for user reference.
+In this section, we have recorded a video guide:
+
+<div align="center">
+  <iframe 
+    width="800"
+    height="450"
+    src="https://www.youtube.com/embed/bekwo-BfQ-8" 
+    title="EthPillar Validator Exit Process" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen
+  ></iframe>
+</div>
 
 
 :::note
 EthPillar will withdraw all keys located in your specified validator keys folder.
-:::
+::: 
