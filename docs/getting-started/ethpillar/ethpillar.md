@@ -20,7 +20,7 @@ To start running nodes, simply execute:
 ethpillar
 ```
 
-EthPillar’s TUI provides comprehensive step-by-step instructions. Additionally, we have recorded a video guide for your convenience. *(TODO: add video link)*
+EthPillar’s TUI provides comprehensive step-by-step instructions. Additionally, we have recorded a [video guide](https://www.youtube.com/watch?v=iBuOBBx-O0c) for your convenience.
 
 Here are some screenshots of key steps:
 
@@ -46,11 +46,16 @@ Following the TUI prompts, you can choose to send your deposit request on-chain 
 
 For advanced users who need to manage multiple keys simultaneously, we provide a batch sending [tool](https://github.com/OpenFusionist/staking-batch-depositer).
 
+In this section, we have recorded a [video guide](https://www.youtube.com/watch?v=QyIT_9w7Ae4) for user reference.
+
 ## Withdraw Deposit
 
 EthPillar integrates with [ethdo](https://github.com/wealdtech/ethdo) to facilitate the withdrawal process for Validators within the TUI.
 
 To withdraw, run `ethpillar`, select `Validator Client -> Generate Voluntary Exit Messages (VEM)` and `Validator Client -> Broadcast Voluntary Exit Messages (VEM)`, and follow the instructions.
+
+In this section, we have recorded a [video guide](https://www.youtube.com/watch?v=bekwo-BfQ-8) for user reference.
+
 
 :::note
 EthPillar will withdraw all keys located in your specified validator keys folder.
