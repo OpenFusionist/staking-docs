@@ -26,7 +26,7 @@ EthPillar’s TUI provides comprehensive step-by-step instructions. Additionally
   <iframe 
     width="800"
     height="450"
-    src="https://www.youtube.com/embed/iBuOBBx-O0c" 
+    src="https://www.youtube.com/embed/YLuZPUW9Q9Q" 
     title="EthPillar Setup Guide" 
     frameborder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -64,7 +64,7 @@ In this section, we have recorded a video guide:
   <iframe 
     width="800"
     height="450"
-    src="https://www.youtube.com/embed/QyIT_9w7Ae4" 
+    src="https://www.youtube.com/embed/FBKbqM9yAJI" 
     title="EthPillar Validator Key Generation and Deposit" 
     frameborder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -84,7 +84,7 @@ In this section, we have recorded a video guide:
   <iframe 
     width="800"
     height="450"
-    src="https://www.youtube.com/embed/bekwo-BfQ-8" 
+    src="https://www.youtube.com/embed/a0kuFdwUwco" 
     title="EthPillar Validator Exit Process" 
     frameborder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
