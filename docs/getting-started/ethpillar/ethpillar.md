@@ -56,7 +56,7 @@ To proceed, run `ethpillar`, select `Validator Client -> Generate / Import Valid
 
 Following the TUI prompts, you can choose to send your deposit request on-chain via [launchpad](https://staking.fusionist.io) (recommended for most users).
 
-For advanced users who need to manage multiple keys simultaneously, we provide a batch sending [tool](https://github.com/OpenFusionist/staking-batch-depositer).
+> For large-scale stakers (e.g., depositing thousands of ACE), using our [batch deposit CLI tool](https://github.com/OpenFusionist/staking-batch-depositer) is the recommended approach to efficiently submit deposit requests.
 
 In this section, we have recorded a video guide:
 
