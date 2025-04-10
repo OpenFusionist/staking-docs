@@ -60,7 +60,14 @@ EthPillar integrates with [ethstaker-deposit-cli](https://github.com/OpenFusioni
 
 To proceed, run `ethpillar`, select `Validator Client -> Generate / Import Validator Keys`, and follow the instructions. EthPillar will automatically load the generated keys into the validator.
 
-Following the TUI prompts, you can choose to send your deposit request on-chain via [launchpad](https://staking.fusionist.io/upload-deposit-data) (recommended for most users).On the staking launchpad page, you can skip the steps of selecting client and generating keys, as these steps have already been integrated into Ethpillar. You only need to use the staking launchpad to send the deposit transaction.
+Following the TUI prompts, you can choose to send your deposit request on-chain via [launchpad](https://staking.fusionist.io/upload-deposit-data) (recommended for most users).On the staking launchpad page,There are the following steps:
+- Advisories: Everything you should understand before becoming a validator, Read it and click `I ACCEPT`
+- Choose client: Already integrated into Ethpillar,just click `CONTINUE`
+- Generate keys: Already integrated into Ethpillar,just click `I am keeping my key(s) safe and have written down my mnemonic phrase.` and `CONTINUE`
+- Upload deposit data: Follow the instructions on the webpage
+- Connect wallet: Follow the instructions on the webpage
+- Summary: Follow the instructions on the webpage
+- Transactions: Follow the instructions on the webpage
 
 > For large-scale stakers (e.g., depositing thousands of ACE), using our [batch deposit CLI tool](https://github.com/OpenFusionist/staking-batch-depositer) is the recommended approach to efficiently submit deposit requests.
 
