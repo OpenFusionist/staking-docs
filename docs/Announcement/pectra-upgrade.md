@@ -12,6 +12,8 @@ sidebar_position: 150
 | Upgrade Epoch | 120150 |
 | Upgrade Block | ~3,828,237 |
 
+The upgrade should be completed before this deadline, and we recommend doing it **as early as possible** to account for any unforeseen issues.
+
 ## 2. How to upgrade
 
 ### for Exchange/Third-party partner
@@ -219,3 +221,9 @@ You can check the latest slot information for the beacon node on this Dora Explo
 
 solo staker use [ethpillar-endurance](https://github.com/OpenFusionist/EthPillar-Endurance) to upgrade, it greatly simplifies the upgrade process.
 just pull the latest ethpillar and run it 
+
+
+
+## 3. Technical Support
+If you have any questions about upgrade, feel free to ask:
+- [Discord](https://discord.com/channels/926691694680870982/1212701304787566592)
