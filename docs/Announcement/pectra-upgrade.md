@@ -10,7 +10,7 @@ sidebar_position: 150
 | --- | --- |
 | Upgrade Time | Wed Aug 20 2025 06:00:00 GMT+0000 |
 | Upgrade Epoch | 120150 |
-
+| Upgrade Block | ~3,828,237 |
 
 ## 2. How to upgrade
 
