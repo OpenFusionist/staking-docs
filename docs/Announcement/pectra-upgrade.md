@@ -212,6 +212,14 @@ docker run \
   
 ```
 
+Check the docker logs If there is similar output, it indicates a successful upgrade, otherwise you can provide detailed error logs to our engineering team for help.
+```
+docker logs -f --tail 100 geth-execution 2>&1 | grep 'Prague'
+INFO [07-16|09:17:36.478] Ready for fork activation                fork=Prague date="20 Aug 25 06:00 UTC" remaining=836h42m24s timestamp=1,755,669,600
+INFO [07-16|09:20:48.271] Ready for fork activation                fork=Prague date="20 Aug 25 06:00 UTC" remaining=836h39m12s timestamp=1,755,669,600
+INFO [07-16|09:23:48.289] Ready for fork activation                fork=Prague date="20 Aug 25 06:00 UTC" remaining=836h36m12s timestamp=1,755,669,600
+```
+
 You can check the latest block information on this Block Explorer to ensure your Execution Layer (EL) node block syncs to the latest block:
 
 - https://explorer-endurance.fusionist.io/
@@ -228,11 +236,17 @@ opening EthPillar in terminal:
 ```
 ethpillar
 ```
-- Navigate to System Administration > Update EthPillar and then quit and relaunch ethpillar
-- Navigate to Execution Client > Update to latest release
-- Navigate to Consensus Client > Update to latest release
-- Navigate to MEV-Boost > Update to latest release
+1. Navigate to System Administration > Update EthPillar and then quit and relaunch ethpillar
+2. Navigate to Execution Client > Update to latest release
+3. Navigate to Consensus Client > Update to latest release
+4. Navigate to MEV-Boost > Update to latest release
 
+Check the logs. If there is similar output, it indicates a successful upgrade,otherwise you need to check the logs for more details and get help from our Discord.
+```
+journalctl -u execution --since today  | grep 'Prague'
+
+Jul 16 08:06:22 dev reth[3417514]: - Prague                           @1755669600
+```
 
 ## 3. Technical Support
 If you have any questions about upgrade, feel free to ask:
