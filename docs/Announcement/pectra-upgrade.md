@@ -4,6 +4,8 @@ sidebar_position: 150
 
 # Endurance Network's Pectra Hardfork
 
+If you are a regular Web3 user for Endurance Network, you can safely ignore this section. The specific upgrade guide below is intended for node operators.
+
 ## 1.Upgrade basic info
 
 | Item | Value |
@@ -13,6 +15,8 @@ sidebar_position: 150
 | Upgrade Block | ~3,828,237 |
 
 The upgrade should be completed before this deadline, and we recommend doing it **as early as possible** to account for any unforeseen issues.
+
+for more technical details about Pectra fork, please refer to [High-level Pectra Fork overview](https://ethereum.org/en/roadmap/pectra/)
 
 ## 2. How to upgrade
 
@@ -220,7 +224,15 @@ You can check the latest slot information for the beacon node on this Dora Explo
 ### for Solo Staker
 
 solo staker use [ethpillar-endurance](https://github.com/OpenFusionist/EthPillar-Endurance) to upgrade, it greatly simplifies the upgrade process.
-just pull the latest ethpillar and run it 
+opening EthPillar in terminal:
+```
+ethpillar
+```
+- Navigate to System Administration > Update EthPillar and then quit and relaunch ethpillar
+- Navigate to Execution Client > Update to latest release
+- Navigate to Consensus Client > Update to latest release
+- Navigate to MEV-Boost > Update to latest release
+
 
 ## 3. Technical Support
 If you have any questions about upgrade, feel free to ask:
