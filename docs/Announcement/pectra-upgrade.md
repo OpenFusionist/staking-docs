@@ -44,7 +44,7 @@ f4c5e8218ee8843b635427b8f10a4dd6475bfaa1363315c33a1bdcffe9cc4b96 chainspec.json
 
 - (Optional) DIFF origin and updated genesis data:
     - [install json diff tools: jd](https://github.com/josephburnett/jd)
-```
+```bash
 # 1. diff <origin-updated> genesis.json
 
 jd origin/genesis.json updated/genesis.json
@@ -119,7 +119,7 @@ index 63146d5..ea64a92 100644
 
 - backup your origin genesis files,and put above new files in the same path.
 eg.
-```shell
+```bash
 1. backup
 cp -r /path/to/your/genesis.json /path/to/your/genesis.json.bak
 cp -r /path/to/your/chainspec.json /path/to/your/chainspec.json.bak
@@ -152,7 +152,7 @@ You need to be running these client versions or any later stable release before 
 
 For Geth, you need to stop the node and then re-execute the `init` command for the configuration to take effect. Here's an example, adjust according to the actual path:
 
-```shell
+```bash
 # 1. init
 docker run \
   --rm \
@@ -213,7 +213,7 @@ docker run \
 ```
 
 Check the docker logs If there is similar output, it indicates a successful upgrade, otherwise you can provide detailed error logs to our engineering team for help.
-```
+```bash
 docker logs -f --tail 100 geth-execution 2>&1 | grep 'Prague'
 INFO [07-16|09:17:36.478] Ready for fork activation                fork=Prague date="20 Aug 25 06:00 UTC" remaining=836h42m24s timestamp=1,755,669,600
 INFO [07-16|09:20:48.271] Ready for fork activation                fork=Prague date="20 Aug 25 06:00 UTC" remaining=836h39m12s timestamp=1,755,669,600
@@ -242,7 +242,7 @@ ethpillar
 4. Navigate to MEV-Boost > Update to latest release
 
 Check the logs. If there is similar output, it indicates a successful upgrade,otherwise you need to check the logs for more details and get help from our Discord.
-```
+```bash
 journalctl -u execution --since today  | grep 'Prague'
 
 Jul 16 08:06:22 dev reth[3417514]: - Prague                           @1755669600
