@@ -250,7 +250,7 @@ Jul 16 08:06:22 dev reth[3417514]: - Prague                           @175566960
 
 ###  For Legacy Reth-Lighthouse Node migrate to EthPillar
 
-Please refer to [Migration Guide](../getting-started/legacy-way/mirgate-to-ethpillar)
+Please refer to [Migration Guide](../getting-started/legacy-way/Migrate-to-ethpillar)
 
 ## 3. Technical Support
 If you have any questions about upgrade, feel free to ask:
