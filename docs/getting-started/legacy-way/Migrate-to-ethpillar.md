@@ -25,7 +25,7 @@ cd mainnet-reth-lighthouse
 ./down.sh
 ```
 
-> **CRITICAL:** To prevent double-signing penalties (slashing), it is crucial to wait for at least **two full epochs (approximately 13 minutes)** after shutting down your old node before your new validator comes online. This waiting period ensures your old validator is fully offline from the network's perspective.
+> **CRITICAL:** To prevent double-signing penalties (slashing), it is crucial to wait for at least **two full epochs (approximately 13 minutes)** after shutting down your old node before your new validator comes online. This waiting period ensures your old validator is fully offline from the network's perspective. Also do not manually restart the old reth-lighthouse node. For safety's sake, completely delete the old directory after the migration is completed.
 
 ---
 
@@ -68,3 +68,13 @@ Jul 21 09:16:24 dev nimbus_validator_client[200349]: INF 2025-07-21 09:16:24.000
 ```
 
 If the `validators=` value matches the number of keys you imported, your migration is complete. Your validator is now successfully running on EthPillar.
+
+
+#### 5. Clean up your old node
+
+After successfully running EthPillar, you can delete the old node file directory to avoid accidentally restarting the old node, which could lead to slashing.
+
+```bash
+rm -rf mainnet-reth-lighthouse
+```
+
