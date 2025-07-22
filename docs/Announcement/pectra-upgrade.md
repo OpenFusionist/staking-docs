@@ -248,9 +248,15 @@ journalctl -u execution --since today  | grep 'Prague'
 Jul 16 08:06:22 dev reth[3417514]: - Prague                           @1755669600
 ```
 
-###  For Legacy Reth-Lighthouse Node migrate to EthPillar
+### For Legacy Reth-Lighthouse Node
 
-Please refer to [Migration Guide](../getting-started/legacy-way/Migrate-to-ethpillar)
+We recommend migrating to EthPillar. See the [Migration Guide](../getting-started/legacy-way/Migrate-to-ethpillar).
+
+If you prefer to keep the legacy workflow, you can still upgrade your node to the Pectra Hardfork by following the [Legacy Upgrade Guide](https://github.com/OpenFusionist/mainnet-reth-lighthouse#upgrade-for-pectra-hardfork).
+
+> **IMPORTANT:** The legacy scripts only support the Pectra Hardfork and will not be maintained for future upgrades.
+
+
 
 ## 3. Technical Support
 If you have any questions about upgrade, feel free to ask:
