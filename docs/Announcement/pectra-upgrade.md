@@ -243,6 +243,15 @@ ethpillar
 3. Navigate to Consensus Client > Update to latest release
 4. Navigate to MEV-Boost > Update to latest release
 
+once update, Navigate to `System Administration -> View software versions`, you should see the following output:
+
+```bash 
+Consensus client: Nimbus/v25.4.1-77cfa7-stateofus                          
+Execution client: reth/v1.3.12-6f8e725/x86_64-unknown-linux-gnu            
+Validator client: Nimbus v25.4.1                                         
+Mev-boost: 1.9
+```
+
 Check the logs. If there is similar output, it indicates a successful upgrade,otherwise you need to check the logs for more details and get help from our Discord.
 ```bash
 journalctl -u execution --since today  | grep 'Prague'
