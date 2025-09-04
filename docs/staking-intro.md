@@ -36,6 +36,12 @@ This is the staking launchpad for Endurance:
 
 - https://staking.fusionist.io/
 
+### Top up a Validator
+
+You can add funds to your validator if it's below the max effective balance (32 ACE for standard accounts, 2048 ACE for Type 2 compounding accounts) or approaching the ejection threshold of 16 ACE. Topping up increases your effective balance, which directly affects rewards and penalties.
+
+- Learn more and top up your validator: [Top Up Guide](https://staking.fusionist.io/en/top-up)
+
 ## Technical Support
 
 If you have any questions about staking, feel free to ask:
