@@ -14,6 +14,34 @@ If you are a regular Web3 user for Endurance Network, you can safely ignore this
 | Upgrade Epoch | 120150 |
 | Upgrade Block | ~3,828,237 |
 
+### Supported Client Versions
+
+#### Consensus Layer Versions
+
+When running a validator, both the Consensus Layer Beacon Node and Validator Client must be updated.
+
+| Name | Version | Link |
+| --- | --- | --- |
+| Lighthouse | 7.0.0 | [Download](https://github.com/sigp/lighthouse/releases/tag/v7.0.0) |
+| Lodestar | 1.29.0 | [Download](https://github.com/ChainSafe/lodestar/releases/tag/v1.29.0) |
+| Nimbus | 25.4.1 | [Download](https://github.com/status-im/nimbus-eth2/releases/tag/v25.4.1) |
+| Prysm | 6.0.0 | [Download](https://github.com/prysmaticlabs/prysm/releases/tag/v6.0.0) |
+| Teku | 25.4.1 | [Download](https://github.com/ConsenSys/teku/releases/tag/v25.4.1) |
+
+
+
+
+#### Execution Layer Versions
+| Name | Version | Link |
+| --- | --- | --- |
+| Besu | 25.4.1 | [Download](https://github.com/hyperledger/besu/releases/tag/v25.4.1) |
+| Erigon | 3.0.2 | [Download](https://github.com/ledgerwatch/erigon/releases/tag/v3.0.2) |
+| go-ethereum | 1.15.10 | [Download](https://github.com/ethereum/go-ethereum/releases/tag/v1.15.10) |
+| Nethermind | 1.31.9 | [Download](https://github.com/NethermindEth/nethermind/releases/tag/1.31.9) |
+| Reth | 1.3.12 | [Download](https://github.com/paradigmxyz/reth/releases/tag/v1.3.12) |
+
+
+
 The upgrade should be completed before this deadline, and we recommend doing it **as early as possible** to account for any unforeseen issues.
 
 for more technical details about Pectra fork, please refer to [High-level Pectra Fork overview](https://ethereum.org/en/roadmap/pectra/)
