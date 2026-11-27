@@ -7,28 +7,48 @@ on:
     # Review gh actions docs if you want to further define triggers, paths, etc
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
+permissions:
+  contents: read
+
+env:
+  COREPACK_NPM_REGISTRY: https://registry.npmjs.org
+
 jobs:
   build:
     name: Build Docusaurus
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
-          node-version: 18
-          cache: yarn
+          node-version: '22.23.5'
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: corepack yarn install --frozen-lockfile --ignore-scripts --non-interactive
+      - name: Verify security overrides
+        run: corepack yarn verify:build-deps
       - name: Build website
-        run: yarn build
+        run: corepack yarn build
 
-      - name: Upload Build Artifact
-        uses: actions/upload-pages-artifact@v3
+      # A Pages artifact contains one tar file. Pin the uploader directly.
+      - name: Package Pages artifact
+        run: |
+          if [[ -n "$(find build -type l -print -quit)" ]]; then
+            echo "The Pages artifact must not contain symlinks." >&2
+            exit 1
+          fi
+          tar --hard-dereference --directory build --exclude=.git --exclude=.github \
+            --create --file "$RUNNER_TEMP/artifact.tar" .
+      - name: Upload Pages artifact
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          path: build
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
 
   deploy:
     name: Deploy to GitHub Pages
@@ -48,4 +68,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
