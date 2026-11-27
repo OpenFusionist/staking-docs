@@ -29,53 +29,40 @@ The proposed genesis time for the new Endurance beacon chain is **Wednesday, Dec
 
 ## For everyday users
 
-**No action is required if you use Endurance through a wallet or an app.** You can keep your current wallet, address and network settings. Once the network resumes and your wallet or app reconnects, you can use Endurance as usual. The technical instructions below are for node operators.
+**Wallet and app users do not need to take any action.** Keep your current address and network settings. Once block production resumes and your app reconnects, you can use Endurance as usual.
 
-If you use an exchange, please check its announcement for when Endurance deposits and withdrawals reopen.
+If you use an exchange, check its announcement for when Endurance deposits and withdrawals reopen.
 
 ## Why a hard fork is needed
 
-Following the bridge incident, Endurance needs to recover affected funds and restart consensus with new validator signing keys. All nodes must apply the same balance changes at the same block and follow the same new beacon chain. This requires a coordinated upgrade of both the execution layer and the consensus layer.
+To recover funds from the bridge incident, all nodes must apply the same balance changes at block **7,155,516**. They must also follow a new beacon chain with new validator signing keys. Both changes require coordination across the network.
 
 ## What changes
 
-- **ACE recovery.** At block **7,155,516**, the upgraded Geth client will transfer approximately **53.737 million ACE** from 35 identified addresses to the recovery treasury. **The total supply of ACE stays the same.** The treasury receives exactly the amount deducted from those addresses.
-- **FAME adjustment.** Two stakes linked to the incident will be removed from the FAME pool. The corresponding **2 million FAME** will be burned, reducing the FAME token supply by that amount. The 2 million ACE recovered from the pool is included in the ACE recovery total above.
-- **New beacon chain genesis.** The beacon chain will restart with a new genesis state and new validator signing keys. Endurance will retain its execution history through block **7,155,515**. Wallet addresses and the mainnet chain ID stay the same.
-- **Project-operated validators.** The project’s **33,000** original `0x01` validators will be consolidated into **515** validators with `0x02` compounding withdrawal credentials. Their combined balance at the transition remains **1,056,068.253134012 ACE**, including accrued rewards. They will keep the same withdrawal address.
+- **ACE recovery.** Geth will transfer approximately **53.737 million ACE** from 35 identified addresses to the recovery treasury. The treasury receives exactly the amount deducted. **Total ACE supply stays the same.**
+- **FAME adjustment.** The fork removes two stakes linked to the incident and burns the corresponding **2 million FAME**, reducing FAME supply by that amount. The **2 million ACE** recovered from the pool is already included in the ACE total above.
+- **New beacon chain genesis.** Endurance keeps its execution history through block **7,155,515**. Only the beacon chain starts from a new genesis state. Wallet addresses and the mainnet chain ID stay the same.
+- **Project-operated validators.** The project will consolidate its **33,000** original `0x01` validators into **515** validators with `0x02` compounding withdrawal credentials. Their combined balance remains **1,056,068.253134012 ACE**, including accrued rewards. The withdrawal address stays the same.
 
 ## What node operators need to do
 
-1. **Install Endurance Geth v1.15.14.** This build activates the recovery rules at block **7,155,516** on Endurance mainnet (chain ID **648**). Linux/amd64 operators can pull the image by digest using the command under [Release materials](#release-materials). If you already run Geth, see the database reuse instructions below.
-2. **Start the beacon node with the new genesis.** Once the restart time is confirmed, we will publish `genesis.ssz`, `config.yaml`, bootnode information and checksums. Use a **fresh beacon-node data directory** with the new files. The old beacon database is optional for historical queries and can be kept offline.
-3. **Switch to Geth if you use another execution client.** Given the recovery timeline, Geth is the only execution client we are releasing for this fork. Operators using **Nethermind, Besu, Reth or Erigon** should prepare a separate Geth data directory and follow the migration guide when it is published. Geth cannot open another client’s database.
-4. **Verify the new chain.** Once the new beacon chain reaches its scheduled genesis time and block **7,155,516** has been produced, you can query its hash from an upgraded Endurance execution-layer node. Check that its parent hash matches the hash listed below for block **7,155,515**. Exchanges and custodians should verify that an independent upgraded node reports the same hash for **7,155,516** and wait until the new chain has finalized **7,155,516** before reopening deposits and withdrawals.
+1. **Upgrade to Endurance Geth v1.15.14.** This is the only execution client released for this fork. If you use Nethermind, Besu, Reth or Erigon, give Geth a separate data directory and keep your old database.
+2. **Prepare your beacon node.** You can keep compatible beacon software. Once the genesis time is confirmed, download the new beacon files and bootnodes listed under [Release materials](#release-materials). Verify the checksums and use a new, empty beacon data directory. You can keep the old beacon database offline for historical queries.
+3. **Verify the chain before reopening deposits and withdrawals.** Check that block **7,155,516** has the parent hash shown below. Wait for that block to be finalized and confirm that an independent upgraded node reports the same hash for **7,155,516**. The [node migration guide](./mainnet-recovery-node-migration.md) includes the commands.
 
 ### Optional: reuse an existing Geth database
 
-The retained execution block is **7,155,515**. Its hash is:
+The last finalized pre-fork execution block is **7,155,515**. Its hash is:
 
 `0x5f44432f34ad074de48e76784c2ac0735139440682d7eda850d1e98df63734d3`
 
-If your Geth head is already at this block, verify the hash and confirm that you can read account balances at that height. You can skip the rewind.
+If your Geth database is at this height, check the hash and confirm you can read a balance at that block. If your old node went past it, rewind **only an isolated copy**. Follow [step 2 of the migration guide](./mainnet-recovery-node-migration.md#2-prepare-your-execution-data) to back up the database, check the copy and rewind it if needed.
 
-If your Geth head is **above** this block and you want to avoid a full resync:
-
-1. Stop Geth cleanly and make an independent copy of its database, including the `ancient` data if stored separately. Keep the original offline.
-2. Start Geth on the **working copy only**, isolated from peers and consensus clients. Verify that block `7,155,515` in the copy has the hash shown above.
-3. Rewind the working copy through its local IPC socket. Replace the example path with the socket for that copy. The command removes later blocks from the copy.
-
-   ```bash
-   geth attach --exec 'debug.setHead("0x6d2f3b")' /path/to/working-copy/geth.ipc
-   ```
-
-4. Restart the copy in isolation. Before connecting it to the new beacon node, verify that its latest block is exactly **7,155,515**, that the hash matches, and that an account balance query at that block succeeds. If pruning has removed the required state or the rewind lands below that height, use the recovery procedure in the forthcoming node migration guide.
-
-**For explorers and indexers:** Geth applies the recovery directly to the block state. The ACE transfers have no transaction hashes, and the FAME burn has no ERC-20 `Transfer` event. Compare the state at blocks **7,155,515** and **7,155,516** to reconcile balances.
+**For exchanges and explorers tracking affected balances:** Compare the account and token balances at blocks **7,155,515** and **7,155,516**. The ACE recovery transfers have no transaction hashes, and the FAME burn has no ERC-20 `Transfer` event.
 
 ## Community validators
 
-We will return **each community validator’s full balance at block 7,155,515** to its existing withdrawal address after the upgrade. This applies to all community validators, including those already using Geth. You do not need to migrate or restart a node to receive your refund.
+After the upgrade, we will return **each community validator's full balance at block 7,155,515** to its existing withdrawal address, even if the node stays offline. This applies regardless of which execution client the operator used, including Geth.
 
 Affected community stakers will also receive **additional ACE compensation**. We will announce the amount and payment schedule separately.
 
@@ -84,8 +71,8 @@ Affected community stakers will also receive **additional ACE compensation**. We
 | Item | Availability |
 |---|---|
 | Endurance Geth for Linux/amd64 | [v1.15.14 on GitHub](https://github.com/OpenFusionist/go-ethereum/releases/tag/v1.15.14) (marked as a pre-release) |
-| Beacon chain genesis, configuration, bootnodes and checksums | To be published after the restart time is confirmed |
-| Node migration guide | To be published |
+| Beacon chain genesis, configuration, bootnodes and checksums | To be published once the genesis time for the new beacon chain is confirmed |
+| Node migration guide | [Read the guide](./mainnet-recovery-node-migration.md) |
 
 Pull the Linux/amd64 image by its published registry digest:
 
