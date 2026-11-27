@@ -46,7 +46,7 @@ Following the bridge incident, Endurance needs to recover affected funds and res
 
 ## What node operators need to do
 
-1. **Install the Endurance recovery build of Geth.** This build contains the recovery rules for block **7,155,516**. We will publish the version, download link and checksum on GitHub. If you already run Geth, you may be able to reuse your execution database as described below.
+1. **Install Endurance Geth v1.15.14.** This build activates the recovery rules at block **7,155,516** on Endurance mainnet (chain ID **648**). Linux/amd64 operators can pull the image by digest using the command under [Release materials](#release-materials). If you already run Geth, see the database reuse instructions below.
 2. **Start the beacon node with the new genesis.** Once the restart time is confirmed, we will publish `genesis.ssz`, `config.yaml`, bootnode information and checksums. Use a **fresh beacon-node data directory** with the new files. The old beacon database is optional for historical queries and can be kept offline.
 3. **Switch to Geth if you use another execution client.** Given the recovery timeline, Geth is the only execution client we are releasing for this fork. Operators using **Nethermind, Besu, Reth or Erigon** should prepare a separate Geth data directory and follow the migration guide when it is published. Geth cannot open another client’s database.
 4. **Verify the new chain.** Once the new beacon chain reaches its scheduled genesis time and block **7,155,516** has been produced, you can query its hash from an upgraded Endurance execution-layer node. Check that its parent hash matches the hash listed below for block **7,155,515**. Exchanges and custodians should verify that an independent upgraded node reports the same hash for **7,155,516** and wait until the new chain has finalized **7,155,516** before reopening deposits and withdrawals.
@@ -83,6 +83,12 @@ Affected community stakers will also receive **additional ACE compensation**. We
 
 | Item | Availability |
 |---|---|
-| Endurance recovery Geth build, version and checksum | To be published on GitHub |
+| Endurance Geth for Linux/amd64 | [v1.15.14 on GitHub](https://github.com/OpenFusionist/go-ethereum/releases/tag/v1.15.14) (marked as a pre-release) |
 | Beacon chain genesis, configuration, bootnodes and checksums | To be published after the restart time is confirmed |
 | Node migration guide | To be published |
+
+Pull the Linux/amd64 image by its published registry digest:
+
+```bash
+docker pull ghcr.io/openfusionist/go-ethereum@sha256:9b00183842ee5a3c49545728a103bec638731e6bb0384645a70c05c02fcfc643
+```
