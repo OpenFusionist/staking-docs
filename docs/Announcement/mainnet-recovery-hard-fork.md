@@ -4,14 +4,28 @@ sidebar_position: 50
 
 # Endurance Mainnet Recovery Hard Fork
 
-Endurance plans to resume block production on **Wednesday, December 2, 2026, at 14:00 Singapore time (06:00 UTC)**. This time is tentative. We will update this announcement when the schedule is confirmed.
+The proposed genesis time for the new Endurance beacon chain is **Wednesday, December 2, 2026 at 14:00 Singapore time (06:00 UTC)**. The execution-layer recovery rules take effect at **block 7,155,516**.
 
-| Item | Details |
-|---|---|
-| Planned restart | **December 2, 2026, 14:00 Singapore time / 06:00 UTC** |
-| Last finalized block retained from the old chain | **7,155,515** |
-| First block under the new rules | **7,155,516** |
-| Endurance mainnet chain ID | **648** |
+<table>
+  <tbody>
+    <tr>
+      <th scope="row">New beacon chain genesis time</th>
+      <td><strong>December 2, 2026 at 14:00 Singapore time (06:00 UTC)</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Last finalized pre-fork execution block</th>
+      <td><strong>7,155,515</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Execution-layer hard fork activation block</th>
+      <td><strong>7,155,516</strong></td>
+    </tr>
+    <tr>
+      <th scope="row">Endurance mainnet chain ID</th>
+      <td><strong>648</strong></td>
+    </tr>
+  </tbody>
+</table>
 
 ## For everyday users
 
